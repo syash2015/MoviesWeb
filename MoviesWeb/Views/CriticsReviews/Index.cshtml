@@ -1,0 +1,72 @@
+﻿@model IEnumerable<MoviesWeb.Models.CriticsReviews>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CriticName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortReview)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullReview)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CriticName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Rating)*@
+            @for (var i = 1; i <= Convert.ToInt32(item.Rating); i++)
+            {
+                <span class="starGlowN"></span>
+            }
+            @for (var i = (Convert.ToInt32(item.Rating) + 1); i <= 5; i++)
+            {
+                <span class="starFadeN"></span>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SourceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SourceURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShortReview)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullReview)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReviewId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReviewId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReviewId })
+        </td>
+    </tr>
+}
+
+</table>

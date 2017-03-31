@@ -1,0 +1,75 @@
+Skip to content
+Features Business Explore Pricing
+This repository
+Search
+Sign in or Sign up
+ Watch 1  Star 1  Fork 0 dotnetfunda/StarRatingSystem
+ Code  Issues 0  Pull requests 0  Projects 1  Pulse  Graphs
+Branch: master Find file Copy pathStarRatingSystem/Content/Site.css
+5e792ea  on 20 Dec 2016
+@dotnetfunda dotnetfunda First checkin
+1 contributor
+RawBlameHistory     
+60 lines (52 sloc)  1.2 KB
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.commentBox {
+    background-color:#efefef;
+    padding:10px;
+    border-radius:10px;
+}
+
+.starFade{
+    background-image:url('/Content/Images/StarFade.gif');
+    min-width:30px;
+    min-height:30px;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.starFadeN{
+    background-image:url('/Content/Images/StarFade.gif');
+    min-width:30px;
+    min-height:30px;
+    display:inline-block;
+}
+
+.starGlow{
+    background-image:url('/Content/Images/starglow.gif');
+    min-width:30px;
+    min-height:30px;
+    display:inline-block;
+    cursor:pointer;
+}
+.starGlowN{
+    background-image:url('/Content/Images/starglow.gif');
+    min-width:30px;
+    min-height:30px;
+    display:inline-block;
+}
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
