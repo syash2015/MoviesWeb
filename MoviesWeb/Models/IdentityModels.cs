@@ -35,5 +35,7 @@ namespace MoviesWeb.Models
         public System.Data.Entity.DbSet<MoviesWeb.Models.CriticsReviews> CriticsReviews { get; set; }
 
         public System.Data.Entity.DbSet<MoviesWeb.Models.News> News { get; set; }
+
+        public System.Data.Entity.DbSet<MoviesWeb.Models.Posts> Posts { get; set; }
     }
 }

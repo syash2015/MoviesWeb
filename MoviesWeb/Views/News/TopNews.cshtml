@@ -1,0 +1,79 @@
+﻿@using System.Data;
+@using MoviesWeb.Models;
+@using PagedList.Mvc;
+@*@model IEnumerable<MoviesWeb.Models.News>*@
+@model PagedList.IPagedList<MoviesWeb.Models.News>
+
+@{
+    ViewBag.Title = "TopNews";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>TopNews</h2>*@
+<div class="col-md-8 blog-posts">
+    <h3 class="post">Latest News</h3>
+    <div class="blog-top">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6 grid_3">
+                <a href="single.html"><img src='/content/uploads/originals/@item.Image' class="img-responsive" alt="" style="width:350px; height:151px"></a>
+                <div class="blog-poast-info">
+                    <ul>
+                        <li><i class="fa fa-user"></i><a class="admin" href="#"><span> </span> Admin </a></li>
+                        <li><i class="fa fa-calendar"></i><span> </span>@item.CreatedOn</li>
+                        @*<li><i class="fa fa-comments"></i><a class="p-blog" href="#"><span> </span>3 Comments </a></li>*@
+                    </ul>
+                </div>
+                <h3><a href="fullnews/@item.NewsId">@item.Title</a></h3>
+                <p>@item.ShortDesc</p>
+
+            </div>
+        }
+       
+        <div class="clearfix"></div>
+    </div>
+    <br />
+    <div class="blog-pagimation">
+        <ul class="pagination sint">
+            @*<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">2 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">3 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">4 <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">5 <span class="sr-only">(current)</span></a></li>
+                <li class="abled"><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>*@
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("TopNews",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+        </ul>
+    </div>
+
+</div>
+<div class="col-md-4 blog-categories">
+    <h3 class="post">Categories</h3>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+    <p><a href="#">Bollwood Movies</a> (34)</p>
+    <p><a href="#">Tamil Movies</a> (12)</p>
+    <p><a href="#">Tollywood Movies</a> (34)</p>
+    <p><a href="#">Collywood Movies</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Actors</a> (12)</p>
+    <p><a href="#">Actress</a> (34)</p>
+    <p><a href="#">Movie News</a> (12)</p>
+    <p><a href="#">Music</a> (34)</p>
+    <p><a href="#">Indian Music</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+    <p><a href="#">Celebrity Interviews</a> (34)</p>
+    <p><a href="#">Lorem Ipsum</a> (12)</p>
+</div>
+<div class="clearfix"></div>
+

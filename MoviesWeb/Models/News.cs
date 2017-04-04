@@ -17,6 +17,17 @@ namespace MoviesWeb.Models
         public string Date { get; set; }
         public string Source { get; set; }
         public string ShortDesc { get; set; }
-        public DateTime CreatedOn { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? CreatedOn { get; set; }
+        public string Image { get; set; }
+        public News()
+        {
+            this.CreatedOn = DateTime.Now;
+        }
+
+       
+
+
+
     }
 }

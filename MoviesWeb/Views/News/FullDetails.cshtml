@@ -1,0 +1,104 @@
+﻿@model MoviesWeb.Models.News
+@{
+    ViewBag.Title = "FullDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>FullDetails</h2>*@
+<div class="blog-section">
+    <div class="col-md-8 blog-posts">
+
+        <h3 class="post">@Html.DisplayFor(model => model.Title)</h3>
+        <div class="last-article">
+            <p class="fa fa-calendar">
+           @Html.DisplayFor(model => model.CreatedOn)</p>
+            <p class="artext">@Html.Raw( Model.Description)</p>
+            @*<h3>Calender Girls - Trailer</h3>
+            <iframe src="https://www.youtube.com/embed/zXGs1sHA7Gg" frameborder="0" allowfullscreen></iframe>
+            <p class="artext">
+                The premier was meeting with Queen Elizabeth II at Buckingham Palace as the Conservatives reached the 326-seat threshold that allows them
+                to ditch their Liberal Democrat coalition partners and govern alone in the 650-seat Parliament.
+            </p>*@
+            <ul class="categories">
+                <li><a href="#">Markets</a></li>
+                <li><a href="#">Business</a></li>
+                <li><a href="#">Sport</a></li>
+                <li><a href="#">Special reports</a></li>
+                <li><a href="#">Culture</a></li>
+            </ul>
+            <div class="clearfix"></div>
+            <ul class="share">
+                <li>share:</li>
+                <li>
+                    <div id="fb-root"></div>
+                    <script>
+(function(d, s, id) {
+							  var js, fjs = d.getElementsByTagName(s)[0];
+							  if (d.getElementById(id)) return;
+							  js = d.createElement(s); js.id = id;
+							  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+							  fjs.parentNode.insertBefore(js, fjs);
+							}(document, 'script', 'facebook-jssdk'));</script>
+
+                    <div class="fb-like" data-href="https://www.facebook.com/w3layouts" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                </li>
+                <li>
+                    <a href="https://twitter.com/w3layouts" class="twitter-share-button" data-dnt="true">Tweet</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </li>
+            </ul>
+            <div class="comments">
+                <h5>Comments</h5>
+                <div class="comment">
+                    <div class="client">
+                        <img src="images/c1.jpg" alt="">
+                    </div>
+                    <div class="client-message">
+                        <p><a href="#">john doe</a><i class="fa fa-calendar"></i>2 hours ago</p>
+                        <h6>While Cameron has had a great night, I suspect his problems in some way have only just begun.</h6>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="comment">
+                    <div class="client">
+                        <img src="images/c2.jpg" alt="">
+                    </div>
+                    <div class="client-message">
+                        <p><a href="#">Allon poe</a><i class="fa fa-calendar"></i>6 hours ago</p>
+                        <h6>The debate over EU membership is likely to come up pretty quickly and could prove a significant distraction for business and government.</h6>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <textarea type="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your comment...';}" required="">Your comment...</textarea>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="col-md-4 blog-categories">
+        <h3 class="post">Categories</h3>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+        <p><a href="#">Bollwood Movies</a> (34)</p>
+        <p><a href="#">Tamil Movies</a> (12)</p>
+        <p><a href="#">Tollywood Movies</a> (34)</p>
+        <p><a href="#">Collywood Movies</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Actors</a> (12)</p>
+        <p><a href="#">Actress</a> (34)</p>
+        <p><a href="#">Movie News</a> (12)</p>
+        <p><a href="#">Music</a> (34)</p>
+        <p><a href="#">Indian Music</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+        <p><a href="#">Celebrity Interviews</a> (34)</p>
+        <p><a href="#">Lorem Ipsum</a> (12)</p>
+    </div>
+    <div class="clearfix"></div>
+</div>
