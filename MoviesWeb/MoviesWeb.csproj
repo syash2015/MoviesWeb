@@ -230,6 +230,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-MoviesWeb-20170330101309.mdf" />
+    <Content Include="App_Data\aspnet-MoviesWeb-20170330101309_log.ldf">
+      <DependentUpon>aspnet-MoviesWeb-20170330101309.mdf</DependentUpon>
+    </Content>
     <Content Include="bin\PagedList.dll" />
     <Content Include="bin\PagedList.Mvc.dll" />
     <Content Include="Content\bootstrap.css" />
@@ -345,7 +349,6 @@
     <Content Include="Views\CriticsReviews\CReviewList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="bin\roslyn\" />
     <Folder Include="Content\Uploads\Thumbnails\" />
     <Folder Include="css\" />
