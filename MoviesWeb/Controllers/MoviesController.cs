@@ -11,7 +11,7 @@ using System.IO;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-
+using PagedList;
 namespace MoviesWeb.Controllers
 {
     public class MoviesController : Controller
@@ -50,6 +50,7 @@ namespace MoviesWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "ID,MName,MDuration,ReleaseDate,Genre,Cast,Direcotr")] Movies movies, HttpPostedFileBase image)
         {
             if (ModelState.IsValid)
@@ -167,5 +168,24 @@ namespace MoviesWeb.Controllers
                 return null;
             }
         }
+        public ActionResult CriticReviews(int id, int? page)
+        {
+            //Movies movies = db.Movies.FirstOrDefault(p => p.ID == id);
+            var a = db.CriticsReviews.Where(c=>c.MovieId==id);
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+           // return View(news.OrderByDescending(x => x.PostId).ToPagedList(pageNumber, pageSize));
+            return PartialView("~/Views/CriticsReviews/CReviewList.cshtml", a.OrderBy(x=>x.ReviewId).ToPagedList(pageNumber, pageSize));
+
+        }
+        public ActionResult MovieDetails(int id)
+        {
+            Movies movies = db.Movies.FirstOrDefault(p => p.ID == id);
+
+            return View(movies);
+
+        }
+       
+        
     }
 }

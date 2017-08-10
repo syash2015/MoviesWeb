@@ -38,7 +38,26 @@ namespace MoviesWeb.Controllers
         // GET: CriticsReviews/Create
         public ActionResult Create()
         {
-            return View();
+           // CriticsReviewsViewModel obj = new CriticsReviewsViewModel();
+            //obj.MoviesList = MoviesSelectList();
+
+            // List <Movies> movieList =  new List<Movies>();
+            //List<SelectListItem> items = new List<SelectListItem>();
+            // var model = new Movies();
+            ApplicationDbContext db1 = new ApplicationDbContext();
+            var model = new CriticsReviewsViewModel
+            {
+                //SelectedCode = 5, //Default value
+                myList = db1.Movies.AsEnumerable().Select(x => new SelectListItem
+                {
+                    Value = x.ID.ToString(),
+                    Text = x.MName
+                })
+            };
+
+            return View(model);
+
+            //return View(obj);
         }
 
         // POST: CriticsReviews/Create
@@ -46,7 +65,7 @@ namespace MoviesWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewId,CriticName,Rating,SourceName,SourceURL,ShortReview,FullReview")] CriticsReviews criticsReviews)
+        public ActionResult Create([Bind(Include = "ReviewId,CriticName,Rating,SourceName,SourceURL,ShortReview,FullReview,MovieId")] CriticsReviews criticsReviews)
         {
             if (ModelState.IsValid)
             {
@@ -123,5 +142,7 @@ namespace MoviesWeb.Controllers
             }
             base.Dispose(disposing);
         }
+
+        
     }
 }

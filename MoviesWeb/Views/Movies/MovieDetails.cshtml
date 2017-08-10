@@ -1,9 +1,8 @@
-﻿@model MoviesWeb.Models.Movies
-@{
+﻿@{
     ViewBag.Title = "MovieDetails";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model MoviesWeb.Models.Movies
 <div class="blog-section">
     <div class="m-single-article">
         <div class="article-left">
@@ -21,7 +20,7 @@
                 <div class="review-info">
                     <h6 class="span88">@Html.DisplayFor(model => model.MName)</h6>
                     <p class="dirctr"><a href="">@Html.DisplayFor(model => model.CreatedBy), </a>@Html.DisplayFor(model => model.CreatedOn)</p>
-                    <p class="ratingview">Critic's Rating:</p>
+                    @*<p class="ratingview">Critic's Rating:</p>
                     <div class="rating">
                         <span>☆</span>
                         <span>☆</span>
@@ -43,9 +42,9 @@
                     </div>
                     <p class="ratingview c-rating">
                         &nbsp; 3.3/5
-                    </p>
-                    <div class="clearfix"></div>
-                    <div class="yrw">
+                    </p>*@
+                    <div class="clearfix">@Session["MID"]=</div>
+                    @*<div class="yrw">
                         <div class="dropdown-button">
                             <select class="dropdown" tabindex="9" data-settings="{&quot;wrapperClass&quot;:&quot;flat&quot;}">
                                 <option value="0">Your rating</option>
@@ -63,11 +62,11 @@
                             <a href="#">REVIEW THIS MOVIE</a>
                         </div>
                         <div class="clearfix"></div>
-                    </div>
-                    <p class="info"><strong>CAST</strong>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Prabhas, Rana Daggubati, Anushka, Tamannaah.</p>
-                    <p class="info"><strong>DIRECTION</strong>: &nbsp;&nbsp;&nbsp;&nbsp;S.S. Rajamouli.</p>
+                    </div>*@
+                    <p class="info"><strong>CAST</strong>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.DisplayFor(model => model.Cast)</p>
+                    <p class="info"><strong>DIRECTION</strong>: &nbsp;&nbsp;&nbsp;&nbsp;@Html.DisplayFor(model => model.Direcotr)</p>
                     <p class="info"><strong>STORY</strong>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; V. Vijayendra Prasad.</p>
-                    <p class="info"><strong>DURATION</strong>:&nbsp;&nbsp;&nbsp; &nbsp; 2 hour 30 minutes.</p>
+                    <p class="info"><strong>DURATION</strong>:&nbsp;&nbsp;&nbsp; &nbsp; @Html.DisplayFor(model => model.MDuration)</p>
                 </div>
             </div>
         </div>
@@ -117,16 +116,14 @@
 
             </div>
             <div class="tab-pane" id="features">
-                <p class="cr-left"><strong>123Telugu.com</strong></p><div class="rating-cr">
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                    <span>☆</span>
-                </div>
-                <div class="clearfix"></div>
-                <p>Continuing with the trend of crime comedies, yet another interesting flick titled Where is Vidya Balan has hit the screens today. Lets see how it is.</p>
-                <a href="#">....Read full review</a>
+                @{
+
+
+                    @Html.Action("CriticReviews", @Html.DisplayFor(model => model.ID))
+
+
+
+                }
             </div>
             <div class="tab-pane" id="source">
                 <div class="response">

@@ -18,7 +18,13 @@ namespace MoviesWeb.Models
         public string Direcotr { get; set; }
         public string Image { get; set; }
         public byte[] Thumbnail { get; set; }
-        
+        public string CreatedBy { get; set; }
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        public DateTime? CreatedOn { get; set; }
+        public Movies()
+        {
+            this.CreatedOn = DateTime.Now;
+        }
 
     }
 }

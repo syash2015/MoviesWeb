@@ -1,0 +1,15 @@
+﻿@model PagedList.IPagedList<MoviesWeb.Models.CriticsReviews>
+@foreach (var item in Model)
+{
+          <p class="cr-left"><strong>@item.SourceName</strong></p><div class="rating-cr">
+                    @*<span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>
+                    <span>☆</span>*@
+    @item.Rating
+                </div>
+                <div class="clearfix"></div>
+                <p>@item.ShortReview</p>
+                <a href="@item.SourceURL">....Read full review</a>
+}
